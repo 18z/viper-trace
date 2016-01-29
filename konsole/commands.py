@@ -4,9 +4,6 @@ import getopt
 from out import *
 from colors import bold, cyan, white
 from session import __session__
-#from viper.core.plugins import __modules__
-#from viper.core.database import Database
-#from viper.core.storage import store_sample, get_sample_path
 
 class Commands(object):
 
@@ -21,24 +18,17 @@ class Commands(object):
             close=dict(obj=self.cmd_close, description="Close the current session"),
             info=dict(obj=self.cmd_info, description="Show information on the opened file"),
             clear=dict(obj=self.cmd_clear, description="Clear the console"),
-            store=dict(obj=self.cmd_store, description="Store the opened file to the local repository"),
-            delete=dict(obj=self.cmd_delete, description="Delete the opened file"),
-            find=dict(obj=self.cmd_find, description="Find a file"),
         )
 
-    ##
-    # CLEAR
-    #
-    # This command simply clears the shell.
     def cmd_clear(self, *args):
+        # CLEAR
+        # This command simply clears the shell.
         os.system('clear')
 
-    ##
-    # HELP
-    #
-    # This command simply prints the help message.
-    # It lists both embedded commands and loaded modules.
     def cmd_help(self, *args):
+        # HELP
+        # This command simply prints the help message.
+        # It lists both embedded commands and loaded modules.
         print(bold("Commands:"))
 
         rows = []
@@ -50,20 +40,14 @@ class Commands(object):
         print(bold("Modules:"))
 
         rows = []
-        for module_name, module_item in __modules__.items():
-            rows.append([module_name, module_item['description']])
 
-        print(table(['Command', 'Description'], rows))
-
-    ##
-    # OPEN
-    #
-    # This command is used to open a session on a given file.
-    # It either can be an external file path, or a SHA256 hash of a file which
-    # has been previously imported and stored.
-    # While the session is active, every operation and module executed will be
-    # run against the file specified.
     def cmd_open(self, *args):
+        # OPEN
+        # This command is used to open a session on a given file.
+        # It either can be an external file path, or a SHA256 hash of a file which
+        # has been previously imported and stored.
+        # While the session is active, every operation and module executed will be
+        # run against the file specified.
         def usage():
             print("usage: open [-h] [-f] target")
 
@@ -111,22 +95,18 @@ class Commands(object):
             if path:
                 __session__.set(path)
 
-    ##
-    # CLOSE
-    #
-    # This command resets the open session.
-    # After that, all handles to the opened file should be closed and the
-    # shell should be restored to the default prompt.
     def cmd_close(self, *args):
+        # CLOSE
+        # This command resets the open session.
+        # After that, all handles to the opened file should be closed and the
+        # shell should be restored to the default prompt.
         __session__.clear()
 
-    ##
-    # INFO
-    #
-    # This command returns information on the open session. It returns details
-    # on the file (e.g. hashes) and other information that might available from
-    # the database.
     def cmd_info(self, *args):
+       # INFO
+       # This command returns information on the open session. It returns details
+       # on the file (e.g. hashes) and other information that might available from
+       # the database.
         if __session__.is_set():
             print(table(
                 ['Key', 'Value'],
@@ -143,71 +123,3 @@ class Commands(object):
                     ('CRC32', __session__.file.crc32)
                 ]
             ))
-
-    ##
-    # STORE
-    #
-    # This command stores the opened file in the local repository and tries
-    # to store details in the database.
-    def cmd_store(self, *args):
-        # TODO: Add tags argument.
-        if __session__.is_set():
-            # Store file to the local repository.
-            new_path = store_sample(__session__.file)
-            # Add file to the database.
-            status = self.db.add(__session__.file)
-
-            print_success("Stored to: {0}".format(new_path))
-
-            # Open session to the new file.
-            self.cmd_open(*[__session__.file.sha256])
-
-    ##
-    # DELETE
-    #
-    # This commands deletes the currenlty opened file (only if it's stored in
-    # the local repository) and removes the details from the database
-    def cmd_delete(self, *args):
-        if __session__.is_set():
-            while True:
-                choice = raw_input("Are you sure you want to delete this binary? Can't be reverted! [y/n] ")
-                if choice == 'y':
-                    break
-                elif choice == 'n':
-                    return
-
-            rows = self.db.find('sha256', __session__.file.sha256)
-            if rows:
-                malware_id = rows[0].id
-                if self.db.delete(malware_id):
-                    print_success("File deleted")
-                else:
-                    print_error("Unable to delete file")
-
-            os.remove(get_sample_path(__session__.file.sha256))
-            __session__.clear()
-
-    ##
-    # FIND
-    #
-    # This command is used to search for files in the database.
-    def cmd_find(self, *args):
-        if len(args) == 0:
-            print_error("Invalid search term")
-            return
-
-        key = args[0]
-        try:
-            value = args[1]
-        except IndexError:
-            value = None
-
-        items = self.db.find(key, value)
-        if not items:
-            return
-
-        rows = []
-        for item in items:
-            rows.append([item.name, item.type, item.size, item.sha256])
-
-        print(table(['Name', 'Type', 'Size', 'SHA256'], rows))
