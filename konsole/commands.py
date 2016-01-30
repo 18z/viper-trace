@@ -8,9 +8,6 @@ from session import __session__
 class Commands(object):
 
     def __init__(self):
-        # Open connection to the database.
-        #self.db = Database()
-
         # Map commands to their related functions.
         self.commands = dict(
             help=dict(obj=self.cmd_help, description="Show this help message"),
@@ -21,14 +18,11 @@ class Commands(object):
         )
 
     def cmd_clear(self, *args):
-        # CLEAR
-        # This command simply clears the shell.
+
         os.system('clear')
 
     def cmd_help(self, *args):
-        # HELP
-        # This command simply prints the help message.
-        # It lists both embedded commands and loaded modules.
+
         print(bold("Commands:"))
 
         rows = []
@@ -36,18 +30,9 @@ class Commands(object):
             rows.append([command_name, command_item['description']])
 
         print(table(['Command', 'Description'], rows))
-        print("")
-        print(bold("Modules:"))
-
-        rows = []
 
     def cmd_open(self, *args):
-        # OPEN
-        # This command is used to open a session on a given file.
-        # It either can be an external file path, or a SHA256 hash of a file which
-        # has been previously imported and stored.
-        # While the session is active, every operation and module executed will be
-        # run against the file specified.
+
         def usage():
             print("usage: open [-h] [-f] target")
 
@@ -96,17 +81,11 @@ class Commands(object):
                 __session__.set(path)
 
     def cmd_close(self, *args):
-        # CLOSE
-        # This command resets the open session.
-        # After that, all handles to the opened file should be closed and the
-        # shell should be restored to the default prompt.
+
         __session__.clear()
 
     def cmd_info(self, *args):
-       # INFO
-       # This command returns information on the open session. It returns details
-       # on the file (e.g. hashes) and other information that might available from
-       # the database.
+
         if __session__.is_set():
             print(table(
                 ['Key', 'Value'],
