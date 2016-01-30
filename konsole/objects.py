@@ -8,18 +8,6 @@ try:
 except ImportError:
     HAVE_SSDEEP = False
 
-try:
-    import magic
-except ImportError:
-    pass
-
-class Singleton(type):
-    _instances = {}
-    def __call__(cls, *args, **kwargs):
-        if cls not in cls._instances:
-            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
-        return cls._instances[cls]
-
 class File(object):
 
     def __init__(self, path):
@@ -65,7 +53,7 @@ class File(object):
         sha1 = hashlib.sha1()
         sha256 = hashlib.sha256()
         sha512 = hashlib.sha512()
-        
+
         for chunk in self.get_chunks():
             crc = binascii.crc32(chunk, crc)
             md5.update(chunk)
