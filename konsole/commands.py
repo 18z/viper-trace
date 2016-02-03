@@ -15,6 +15,7 @@ class Commands(object):
             close=dict(obj=self.cmd_close, description="Close the current session"),
             info=dict(obj=self.cmd_info, description="Show information on the opened file"),
             clear=dict(obj=self.cmd_clear, description="Clear the console"),
+            geoip=dict(obj=self.cmd_geoip, description="Find country code and name"),
         )
 
     def cmd_clear(self, *args):
@@ -102,3 +103,15 @@ class Commands(object):
                     ('CRC32', __session__.file.crc32)
                 ]
             ))
+
+    def cmd_geoip(self, *args):
+        opts, argv = getopt.getopt(args, 'i')
+        ip = argv[0].strip()
+        __session__.set_ip(ip)
+
+        print(table(
+            ['IP', 'Country Name', 'Country Code'],
+            [(ip, __session__.country_name, __session__.country_code)]
+
+        ))
+

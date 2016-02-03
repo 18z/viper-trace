@@ -1,5 +1,6 @@
 from out import *
 from objects import File
+from geoip import geoip
 
 class Session(object):
     def __init__(self):
@@ -25,5 +26,9 @@ class Session(object):
         # Open a section on the given file.
         self.file = File(path)
         print_info("Session opened on {0}".format(path))
+
+    def set_ip(self, ip):
+        self.country_code = geoip.GeoIP(ip).ip2countrycode()
+        self.country_name = geoip.GeoIP(ip).ip2countryname()
 
 __session__ = Session()
