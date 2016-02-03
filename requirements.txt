@@ -1,0 +1,4 @@
+IP2Location==7.0.4
+argparse==1.2.1
+prettytable==0.7.2
+wsgiref==0.1.2
