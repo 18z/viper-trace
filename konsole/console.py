@@ -5,6 +5,7 @@ import readline
 
 from colors import bold, cyan, white
 from session import __session__
+from konsole.plugins import __modules__
 from commands import Commands
 
 class Console(object):
@@ -84,3 +85,7 @@ class Console(object):
 
             if root in self.cmd.commands:
                 self.cmd.commands[root]['obj'](*args)
+            elif root in __modules__:
+                module = __modules__[root]['obj']()
+                module.set_args(args)
+                module.run()
