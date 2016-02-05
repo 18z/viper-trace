@@ -30,10 +30,10 @@ class Console(object):
 
         return (root, args)
 
-    def keywords(self, data):
-        # Check if $self is in the user input data.
-        if '$self' in data:
-            data = data.replace('$self', __session__.file.path)
+    # def keywords(self, data):
+    #     # Check if $self is in the user input data.
+    #     if '$self' in data:
+    #         data = data.replace('$self', __session__.file.path)
 
         return data
 
@@ -68,7 +68,7 @@ class Console(object):
         while self.active:
             prompt = cyan('shell > ')
             data = raw_input(prompt).strip()
-            data = self.keywords(data)
+            #data = self.keywords(data)
 
             if not data:
                 continue
