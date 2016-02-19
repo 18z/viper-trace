@@ -42,7 +42,7 @@
 
 我們可看到指令的定義是用 dictionary 來實作，且是用了兩層的 dictionary。
 
-第一層其實也可寫成
+* 第一層其實也可寫成
 
     ```python
     dict('help' : dict('obj' : self.cmd_help,
