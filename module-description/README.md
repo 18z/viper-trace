@@ -17,7 +17,7 @@ DISTRIB_DESCRIPTION="Ubuntu 14.04.4 LTS"
 | 4     | plugins.py    | except-example.py     |[說明](except-description.md)|
 |       |               | pkgutil-example.py    |[說明](pkgutil-description.md)|
 |       |               | inspect-example.py    |[說明](inspect-description.md)|
-| 5     | objects.py    | object-example.py     |           |
+| 5     | objects.py    | object-example.py     |[說明](object-description.md)|
 | 6     | session.py    | session-example.py    |           |
 | 7     | console.py    | viper.py              |           |
 |       |               | atexit-example.py     |           |
