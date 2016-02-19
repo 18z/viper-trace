@@ -9,7 +9,7 @@ DISTRIB_DESCRIPTION="Ubuntu 14.04.4 LTS"
 |------ |-------------  |---------------------- |---------- |
 | 1     | colors.py     | color-example.py      |[說明](colors-description.md)|
 | 2     | out.py        | out-example.py        |[說明](out-description.md)   |
-| 3     | commands.py   | cmd-example.py        |           |
+| 3     | commands.py   | cmd-example.py        |[說明](cmd-description.md)   |
 |       |               | args-example.py       |           |
 |       |               | getopt-example.py     |           |
 | 4     | plugins.py    | except-example.py     |           |
