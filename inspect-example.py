@@ -1,10 +1,13 @@
 import pkgutil
 import inspect
 
-# this is the package we are inspecting -- for example 'email' from stdlib
+# this is the package I want to inspecting -- modules under viper-trace
 import modules
 
-package = modules
+# this is the package we are inspecting -- for example 'email' from stdlib
+import email
+
+package = modules # hint: change to email
 prefix = package.__name__ + "."
 
 for importer, modname, ispkg in pkgutil.walk_packages(package.__path__, prefix):
