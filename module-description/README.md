@@ -20,7 +20,7 @@ DISTRIB_DESCRIPTION="Ubuntu 14.04.4 LTS"
 | 5     | objects.py    | object-example.py     |[說明](object-description.md)|
 | 6     | session.py    | session-example.py    |[說明](session-description.md)|
 | 7     | console.py    | viper.py              |[說明](console-description.md)|
-|       |               | atexit-example.py     |           |
+|       |               | atexit-example.py     |[說明](atexit-description.md) |
 |       |               | input-example.py      |           |
 |       |               | readline-example.py   |           |
 |       |               | startwith-example.py  |           |
