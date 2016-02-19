@@ -2,8 +2,10 @@
 
 執行環境：
 
+```bash
 Python 2.7.6
 DISTRIB_DESCRIPTION="Ubuntu 14.04.4 LTS"
+```
 
 | 編號  | 功能模組      | 使用範例              | 使用解說  |
 |------ |-------------  |---------------------- |---------- |
@@ -11,7 +13,7 @@ DISTRIB_DESCRIPTION="Ubuntu 14.04.4 LTS"
 | 2     | out.py        | out-example.py        |[說明](out-description.md)   |
 | 3     | commands.py   | cmd-example.py        |[說明](cmd-description.md)   |
 |       |               | args-example.py       |[說明](args-description.md)  |
-|       |               | getopt-example.py     |           |
+|       |               | getopt-example.py     |[說明](getopt-description.md)|
 | 4     | plugins.py    | except-example.py     |           |
 |       |               | inspect-example.py    |           |
 |       |               | pkgutil-example.py    |           |
