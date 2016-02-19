@@ -15,8 +15,8 @@ DISTRIB_DESCRIPTION="Ubuntu 14.04.4 LTS"
 |       |               | args-example.py       |[說明](args-description.md)  |
 |       |               | getopt-example.py     |[說明](getopt-description.md)|
 | 4     | plugins.py    | except-example.py     |[說明](except-description.md)|
+|       |               | pkgutil-example.py    |[說明](pkgutil-description.md)|
 |       |               | inspect-example.py    |[說明](inspect-description.md)|
-|       |               | pkgutil-example.py    |           |
 | 5     | objects.py    | object-example.py     |           |
 | 6     | session.py    | session-example.py    |           |
 | 7     | console.py    | viper.py              |           |
