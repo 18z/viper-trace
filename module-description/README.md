@@ -14,7 +14,7 @@ DISTRIB_DESCRIPTION="Ubuntu 14.04.4 LTS"
 | 3     | commands.py   | cmd-example.py        |[說明](cmd-description.md)   |
 |       |               | args-example.py       |[說明](args-description.md)  |
 |       |               | getopt-example.py     |[說明](getopt-description.md)|
-| 4     | plugins.py    | except-example.py     |           |
+| 4     | plugins.py    | except-example.py     |[說明](except-description.md)|
 |       |               | inspect-example.py    |           |
 |       |               | pkgutil-example.py    |           |
 | 5     | objects.py    | object-example.py     |           |
