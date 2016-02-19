@@ -23,6 +23,6 @@ DISTRIB_DESCRIPTION="Ubuntu 14.04.4 LTS"
 |       |               | atexit-example.py     |[說明](atexit-description.md) |
 |       |               | input-example.py      |[說明](input-description.md)  |
 |       |               | readline-example.py   |[說明](readline-description.md)|
-|       |               | startwith-example.py  |           |
+|       |               | startwith-example.py  |[說明](startswith-description.md)|
 | 8     | database.py   | db-example.py         |           |
 | 9     | storage.py    | storage-example.py    |           |
