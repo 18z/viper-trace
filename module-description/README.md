@@ -22,7 +22,7 @@ DISTRIB_DESCRIPTION="Ubuntu 14.04.4 LTS"
 | 7     | console.py    | viper.py              |[說明](console-description.md)|
 |       |               | atexit-example.py     |[說明](atexit-description.md) |
 |       |               | input-example.py      |[說明](input-description.md)  |
-|       |               | readline-example.py   |           |
+|       |               | readline-example.py   |[說明](readline-description.md)|
 |       |               | startwith-example.py  |           |
 | 8     | database.py   | db-example.py         |           |
 | 9     | storage.py    | storage-example.py    |           |
