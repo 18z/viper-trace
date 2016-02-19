@@ -21,7 +21,7 @@ DISTRIB_DESCRIPTION="Ubuntu 14.04.4 LTS"
 | 6     | session.py    | session-example.py    |[說明](session-description.md)|
 | 7     | console.py    | viper.py              |[說明](console-description.md)|
 |       |               | atexit-example.py     |[說明](atexit-description.md) |
-|       |               | input-example.py      |           |
+|       |               | input-example.py      |[說明](input-description.md)  |
 |       |               | readline-example.py   |           |
 |       |               | startwith-example.py  |           |
 | 8     | database.py   | db-example.py         |           |
