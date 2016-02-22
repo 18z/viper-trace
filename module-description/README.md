@@ -24,5 +24,5 @@ DISTRIB_DESCRIPTION="Ubuntu 14.04.4 LTS"
 |       |               | input-example.py      |[說明](input-description.md)  |
 |       |               | readline-example.py   |[說明](readline-description.md)|
 |       |               | startwith-example.py  |[說明](startswith-description.md)|
-| 8     | database.py   | db-example.py         |           |
-| 9     | storage.py    | storage-example.py    |[說明](storage-description.md)|
+| 8     | storage.py    | storage-example.py    |[說明](storage-description.md)|
+| 9     | database.py   | db-example.py         |[說明](db-description.md)|
