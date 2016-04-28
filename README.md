@@ -4,7 +4,7 @@
 
 通常發展一段時日之專案，其規模與複雜度會隨之增加。因此，若直接從最近的版本下手，則較難以掌握精髓。為降低專案複雜度，首先建議使用 git checkout，將專案回溯到早期相對簡易之版本。
 
-#### 將程式間的關聯找出
+#### 將程式間的關聯找出 Top-Down
 
 回到早期版本後，接下來的任務就是建立程式間關聯表格。以下面表格為例，程式由最左邊 viper.py 開始，該程式會呼叫、使用 console.py，而 console.py 又會呼叫、使用到 colors.py、session.py、plugins.py、commands.py。其中 colors.py 並無呼叫或使用其他程式，因此它後面就接上 end 表示結束。依上面方法，將所有程式之間的關聯表建立出來後，將有助於對專案架構的理解與程式的使用。
 
@@ -19,7 +19,7 @@
 |                      |                                  |                                    | [colors.py](konsole/colors.py)      | end                              |     |
 |                      |                                  |                                    | [session.py](konsole/session.py)    | [objects.py](konsole/objects.py) | end |
 
-#### 化繁為簡 (二)
+#### 化繁為簡 (二) Bottom-Up, 功能模組切割
 
 回到早期版本後，專案複雜度雖降低許多，但或許還是不易閱讀。此時便可搭配上一階段所建立的關聯表，依循脈絡，切割功能模組並過濾雜質。舉例來說，colors.py 已經是程式關聯脈絡的最底層了。因此，我們就從 colors.py 開始，反方向追 code 回去。
 
