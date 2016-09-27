@@ -29,7 +29,7 @@
 
 #### 追 code 神器
 
-閱讀程式碼過程建議搭配 exuberant-ctags 與 tagbar。輔助閱讀，將能更快速抓到重點。
+閱讀程式碼過程建議搭配 exuberant-ctags、tig 與 tagbar。輔助閱讀，將能更快速抓到重點。
 
 將上述過程重複執行，便可逐漸掌握專案輪廓與細節。
 
